@@ -1,5 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<div class="app">
 
-<router-outlet></router-outlet>
+<header>
+  header
+  <!--<div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">{{title}}</span>
+    <div class="mdl-layout-spacer"></div>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" [routerLink]="links.searchbox">Searchbox</a>
+    </nav>
+  </div>-->
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+</div>

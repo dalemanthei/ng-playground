@@ -1,17 +1,19 @@
-<div class="mdl-grid">
+<div>
 
-  <h3 class="mdl-cell mdl-cell--12-col">{{title}}</h3>
+  <h3>{{title}}</h3>
 
+  <div>
     <md-input-container>
-    <input mdInput placeholder="Enter giphy search" type="text" id="giphySearch" [formControl]="searchControl">
+      <input mdInput placeholder="Enter giphy search" type="text" id="giphySearch" [formControl]="searchControl">
     </md-input-container>
+  </div>
 
-  <div class="content-grid mdl-grid mdl-cell--12-col">
-      <img *ngFor="let gif of resultSet"
-        src="{{gif.large.url}}"
-        height={{gif.large.height}}
-        width={{gif.large.width}}
-        alt="">
+  <div>
+    <img *ngFor="let gif of resultSet"
+      src="{{gif.downsized.url}}"
+      height={{gif.downsized.height}}
+      width={{gif.downsized.width}}
+      alt="">
   </div>
 
 </div>
