@@ -1,0 +1,33 @@
+.page {
+  display: flex;
+
+  .image-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+    // width: 60%;
+
+    button {
+      margin-right: 10px;
+    }
+
+    img {
+      height: 50px;
+      width: 50px;
+      min-height: 50px;
+      min-width: 50px;
+      margin-right: 10px;
+    }
+  }
+
+  .controls {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin: 5px 0;
+    }
+  }
+}

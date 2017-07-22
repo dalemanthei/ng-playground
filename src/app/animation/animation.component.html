@@ -1,0 +1,19 @@
+<h1>Animations</h1>
+
+<div class="page">
+
+  <div class="controls">
+    <button md-raised-button color="primary" (click)="add()">Add</button>
+    <button md-raised-button color="primary" (click)="reset()">Reset</button>
+  </div>
+
+  <div class="images">
+    <!--<div class="image-row" *ngFor="let photo of photos; let $index = index" [@animateInOut]="wut" (click)="animateMe()">-->
+    <div class="image-row" *ngFor="let photo of photos; let $index = index">
+      <button md-raised-button color="primary" (click)="remove($index)">Remove</button>
+      <img src="{{photo.thumbnailUrl}}" alt="">
+      <div>{{ photo.title }}</div>
+    </div>
+  </div>
+
+</div>

@@ -18,8 +18,9 @@ import {
   MdToolbarModule
 } from '@angular/material';
 import { FormsComponent } from './forms/forms.component';
+import { AnimationComponent } from './animation/animation.component';
 @NgModule({
-  declarations: [AppComponent, SearchboxComponent, FormsComponent],
+  declarations: [ AnimationComponent, AppComponent, SearchboxComponent, FormsComponent],
   imports: [
     // StoreModule.provideStore({ /* reducers here */ })
     AppRoutingModule,
