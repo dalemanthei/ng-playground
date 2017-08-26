@@ -17,10 +17,18 @@ import {
   MdMenuModule,
   MdToolbarModule
 } from '@angular/material';
-import { FormsComponent } from './forms/forms.component';
 import { AnimationComponent } from './animation/animation.component';
+import { FormsComponent } from './forms/forms.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+
 @NgModule({
-  declarations: [ AnimationComponent, AppComponent, SearchboxComponent, FormsComponent],
+  declarations: [
+    AnimationComponent,
+    AppComponent,
+    SearchboxComponent,
+    FormsComponent,
+    LoginFormComponent
+  ],
   imports: [
     // StoreModule.provideStore({ /* reducers here */ })
     AppRoutingModule,

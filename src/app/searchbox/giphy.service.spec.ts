@@ -3,14 +3,17 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { GiphyService } from './giphy.service';
 
-describe('GiphyService', () => {
+xdescribe('GiphyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [GiphyService]
     });
   });
 
-  it('should ...', inject([GiphyService], (service: GiphyService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should ...',
+    inject([GiphyService], (service: GiphyService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });
