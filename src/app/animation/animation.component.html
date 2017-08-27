@@ -7,12 +7,14 @@
     <button md-raised-button color="primary" (click)="reset()">Reset</button>
   </div>
 
-  <div class="images">
-    <!--<div class="image-row" *ngFor="let photo of photos; let $index = index" [@animateInOut]="wut" (click)="animateMe()">-->
-    <div class="image-row" *ngFor="let photo of photos; let $index = index">
+  <div class="beers">
+    <div class="beer" *ngFor="let beer of beers; let $index = index">
       <button md-raised-button color="primary" (click)="remove($index)">Remove</button>
-      <img src="{{photo.thumbnailUrl}}" alt="">
-      <div>{{ photo.title }}</div>
+      <img src="{{beer.image_url}}" alt="a picture of beer or something">
+      <div class="about">
+        <div class="name">{{ beer.name }}</div>
+        <div class="tagline">{{ beer.tagline }}</div>
+      </div>
     </div>
   </div>
 

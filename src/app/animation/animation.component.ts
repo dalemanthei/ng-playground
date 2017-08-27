@@ -1,59 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+  useAnimation
+} from '@angular/animations';
+import { fadeAnimation, listAnimation } from './animations';
 
 @Component({
   selector: 'app-animation',
   templateUrl: './animation.component.html',
   styleUrls: ['./animation.component.scss'],
-  animations: [
-    trigger('animateInOut', [
-      state('in', style({
-      })),
-      // state('in', style({
-      //   transform: 'height: 100%'
-      // })),
-      state('out', style({
-        transform: 'max-height: 0px'
-      })),
-      transition('in <=> out', animate('600ms ease-in')),
-      transition('void <=> any', animate('600ms ease-in'))
-    ]),
-  ]
+  animations: listAnimation({})
 })
 export class AnimationComponent implements OnInit {
-
-  allPhotos: Array<any>;
-  photos: Array<any>;
-  wut: String = 'in';
+  allBeers: Array<any>;
+  beers: Array<any>;
 
   constructor(private http: Http) {
-    this.http.get('https://jsonplaceholder.typicode.com/photos')
+    this.http
+      .get('https://api.punkapi.com/v2/beers?abv_gt=12')
+      .do(r => console.log)
       .map(response => response.json())
       .subscribe(data => {
-        this.allPhotos = data.slice(0, 20);
-        this.photos = data.slice(0, 3);
-      })
-      ;
+        this.allBeers = data;
+        this.beers = data.slice(0, 3);
+      });
   }
 
-  ngOnInit() {
-  }
-
-  animateMe() {
-    this.wut = this.wut === 'in' ? 'out' : 'in';
-  }
+  ngOnInit() {}
 
   remove(index: number) {
-    this.photos = [...this.photos.slice(0, index), ...this.photos.slice(index + 1)];
+    // this.photos.splice(index, 1);
+    this.beers = [
+      ...this.beers.slice(0, index),
+      ...this.beers.slice(index + 1)
+    ];
   }
 
   add() {
-    this.photos.push(this.allPhotos[this.photos.length]);
+    // add the next available beer not currently shown to the list
+    this.beers.push(this.getBeersNotShown(this.allBeers, this.beers)[0]);
+  }
+
+  getBeersNotShown(allBeers: any[], beers: any[]) {
+    return allBeers.filter(b => !beers.includes(b));
   }
 
   reset() {
-    this.photos = this.allPhotos.slice(0, 3);
+    this.beers = this.allBeers.slice(0, 3);
   }
-
 }

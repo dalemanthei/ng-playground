@@ -1,23 +1,33 @@
 .page {
   display: flex;
 
-  .image-row {
+  .beer {
     display: flex;
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid lightgray;
-    // width: 60%;
+
+    .about {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-size: 22px;
+      }
+
+      .tagline {
+        font-size: 16px;
+      }
+    }
 
     button {
       margin-right: 10px;
     }
 
     img {
-      height: 50px;
+      height: auto;
       width: 50px;
-      min-height: 50px;
-      min-width: 50px;
-      margin-right: 10px;
+      margin: 0 20px 0 30px;
     }
   }
 
