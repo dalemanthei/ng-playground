@@ -2,13 +2,19 @@
 <md-toolbar color="primary">
   <span>Angular Playground</span>
   <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon></button>
+  <button md-button
+          [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon></button>
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">
-  <button md-menu-item routerLink="searchbox">Searchbox</button>
-  <button md-menu-item routerLink="forms">Forms</button>
-  <button md-menu-item routerLink="login">Login</button>
+  <button md-menu-item
+          routerLink="searchbox">Searchbox</button>
+  <button md-menu-item
+          routerLink="forms">Forms</button>
+  <button md-menu-item
+          routerLink="login">Login</button>
+  <button md-menu-item
+          routerLink="d3">D3</button>
 </md-menu>
 
 <!--<md-card *ngFor="let data of (myData ? myData.slice(0,10): []); let i=index">

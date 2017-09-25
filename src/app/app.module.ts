@@ -19,12 +19,14 @@ import {
 } from '@angular/material';
 import { FormsComponent } from './forms/forms.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { D3Component } from './d3/d3.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchboxComponent,
     FormsComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    D3Component
   ],
   imports: [
     // StoreModule.provideStore({ /* reducers here */ })
