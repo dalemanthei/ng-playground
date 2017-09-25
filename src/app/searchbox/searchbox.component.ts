@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { GiphyService } from './giphy.service';
-import { MaterialModule } from '@angular/material';
 
 import 'rxjs/Rx';
 
