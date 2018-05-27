@@ -2,12 +2,20 @@
 
   <h3 class="mdl-cell mdl-cell--12-col">{{title}}</h3>
 
-  <md-input-container>
-    <input mdInput placeholder="Enter giphy search" type="text" id="giphySearch" [formControl]="searchControl">
-  </md-input-container>
+  <mat-form-field>
+    <input matInput
+           placeholder="Enter giphy search"
+           type="text"
+           id="giphySearch"
+           [formControl]="searchControl">
+  </mat-form-field>
 
   <div class="content-grid mdl-grid mdl-cell--12-col">
-    <img *ngFor="let gif of resultSet" src="{{gif.large.url}}" height={{gif.large.height}} width={{gif.large.width}} alt="">
+    <img *ngFor="let gif of resultSet"
+         src="{{gif.large.url}}"
+         height={{gif.large.height}}
+         width={{gif.large.width}}
+         alt="">
   </div>
 
 </div>

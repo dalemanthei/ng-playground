@@ -1,26 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <span>Angular Playground</span>
   <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon></button>
-</md-toolbar>
+  <button mat-button
+          [matMenuTriggerFor]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
 
-<md-menu #appMenu="mdMenu">
-  <button md-menu-item routerLink="searchbox">Searchbox</button>
-  <button md-menu-item routerLink="forms">Forms</button>
-  <button md-menu-item routerLink="login">Login</button>
-</md-menu>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item
+          routerLink="searchbox">Searchbox</button>
+  <button mat-menu-item
+          routerLink="forms">Forms</button>
+  <button mat-menu-item
+          routerLink="login">Login</button>
+</mat-menu>
 
-<!--<md-card *ngFor="let data of (myData ? myData.slice(0,10): []); let i=index">
-  <img md-card-image src="{{data.url}}" alt="">
-  <md-card-header>
-    <md-card-title>{{data.title}}</md-card-title>
-  </md-card-header>
-  <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>Favorite</button>
-  </md-card-actions>
-</md-card>-->
+<!--<mat-card *ngFor="let data of (myData ? myData.slice(0,10): []); let i=index">
+  <img mat-card-image src="{{data.url}}" alt="">
+  <mat-card-header>
+    <mat-card-title>{{data.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>Favorite</button>
+  </mat-card-actions>
+</mat-card>-->
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>

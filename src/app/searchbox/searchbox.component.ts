@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
+import { Observable, fromEvent, interval } from 'rxjs';
 import { GiphyService } from './giphy.service';
-
-import 'rxjs/Rx';
+import {
+  debounce,
+  distinctUntilChanged,
+  map,
+  concatAll,
+  takeUntil
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-searchbox',
@@ -14,7 +19,8 @@ export class SearchboxComponent implements OnInit {
   title: String = 'Searchbox';
   searchControl = new FormControl();
   delay = 400;
-  resultSet: Array<any>;
+  // resultSet: Array<any>;
+  resultSet: any;
 
   // giphys$: Observable<{}> = this.giphyService.giphys$;
   // giphys$: Observable<Object[]> = this.store.select('giphys');
@@ -26,15 +32,19 @@ export class SearchboxComponent implements OnInit {
     // this.giphyService.searchLoad('foo');
 
     const elt = document.querySelector('#giphySearch');
-    const keyup$ = Observable.fromEvent(elt, 'keyup');
+    const keyup$ = fromEvent(elt, 'keyup');
 
     keyup$
-      .debounce(() => Observable.interval(this.delay))
-      .distinctUntilChanged()
-      .map(k =>
-        this.giphyService.search(this.searchControl.value).takeUntil(keyup$)
+      .pipe(
+        debounce(() => interval(this.delay)),
+        distinctUntilChanged(),
+        map(k =>
+          this.giphyService
+            .search(this.searchControl.value)
+            .pipe(takeUntil(keyup$))
+        ),
+        concatAll()
       )
-      .concatAll()
       .subscribe(searchResults => (this.resultSet = searchResults));
   }
 }

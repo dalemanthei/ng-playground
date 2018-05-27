@@ -19,7 +19,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login-form.component.html'
 })
 export class LoginFormComponent implements OnChanges {
-  private loginForm: FormGroup;
+  public loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({

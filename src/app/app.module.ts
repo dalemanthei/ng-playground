@@ -10,12 +10,13 @@ import { GiphyService } from './searchbox/giphy.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdIconModule,
-  MdInputModule,
-  MdMenuModule,
-  MdToolbarModule
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatToolbarModule
 } from '@angular/material';
 import { FormsComponent } from './forms/forms.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -34,12 +35,13 @@ import { LoginFormComponent } from './login-form/login-form.component';
     FormsModule,
     HttpModule,
     JsonpModule,
-    MdButtonModule,
-    MdCardModule,
-    MdIconModule,
-    MdInputModule,
-    MdMenuModule,
-    MdToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatToolbarModule,
     ReactiveFormsModule
   ],
   providers: [GiphyService],
